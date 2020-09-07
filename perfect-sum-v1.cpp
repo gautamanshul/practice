@@ -32,7 +32,7 @@ namespace perfect_sum_v1 {
     }
     int main() {
         std::vector<int> arr{5, 10, 12, 13, 15, 18};
-
+        return 0;
     }
 
 }
