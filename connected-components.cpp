@@ -6,6 +6,7 @@
 /// Find the connected components in a graph
 /// Use DFS algorithm to identify the connected components
 /// Uses the components vector to classify elements of each component
+/// Time complexity of DFS O( V + E )
 namespace  connected_components
 {
     class graph
@@ -71,26 +72,27 @@ namespace  connected_components
             std::cout << "Node " << i << " belongs to component " << components[i] << std::endl;
         }
     }
+    int main(int argc, char *argv[])
+    {
+        connected_components::graph g(18);
+        g.add(0, 4);
+        g.add(0, 13);
+        g.add( 0, 14);
+        g.add(0, 8);
+        g.add(6, 11);
+        g.add(6, 7);
+        g.add( 3, 9);
+        g.add( 9, 15);
+        g.add( 9, 2);
+        g.add( 2, 10);
+        g.add( 1,5);
+        g.add(5, 16);
+        g.add(5, 17);
+
+        g.find_components();
+    }
 }
 
-int main(int argc, char *argv[])
-{
-    connected_components::graph g(18);
-    g.add(0, 4);
-    g.add(0, 13);
-    g.add( 0, 14);
-    g.add(0, 8);
-    g.add(6, 11);
-    g.add(6, 7);
-    g.add( 3, 9);
-    g.add( 9, 15);
-    g.add( 9, 2);
-    g.add( 2, 10);
-    g.add( 1,5);
-    g.add(5, 16);
-    g.add(5, 17);
 
-    g.find_components();
-}
 
 
