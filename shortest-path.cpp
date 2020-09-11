@@ -76,17 +76,18 @@ namespace shortest_path {
         }
         std::cout << "Parent array" << std::endl;
     }
+
+    int main(int argc, char * argv[])
+    {
+        shortest_path::graph g(4);
+        g.add(0, 1);
+        g.add( 0 , 2 );
+        g.add(1, 2 );
+        g.add(2, 3);
+
+        g.solve(0);
+        g.reconstruct_path(0,3);
+        return 0;
+    }
 }
 
-int main(int argc, char * argv[])
-{
-    shortest_path::graph g(4);
-    g.add(0, 1);
-    g.add( 0 , 2 );
-    g.add(1, 2 );
-    g.add(2, 3);
-
-    g.solve(0);
-    g.reconstruct_path(0,3);
-    return 0;
-}
