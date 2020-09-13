@@ -110,53 +110,55 @@ namespace maze {
         if ( reached_end ) return move_count;
         return -1;
     }
+
+    int main()
+    {
+        /// 1 - Cells to be explored
+        /// 2 - End cell / Destination cell
+        /// 3 - Can't be explored
+        maze::graph g(5, 7);
+        g.update_cell(0,0,1);
+        g.update_cell(0,1,1);
+        g.update_cell(0,2,1);
+        g.update_cell(0,3,2);
+        g.update_cell(0,4,1);
+        g.update_cell(0,5,1);
+        g.update_cell(0,6,1);
+        g.update_cell(0,0,1);
+        g.update_cell(1,0,1);
+        g.update_cell(1,1,2);
+        g.update_cell(1,2,1);
+        g.update_cell(1,3,1);
+        g.update_cell(1,4,1);
+        g.update_cell(1,5,2);
+        g.update_cell(1,6,1);
+        g.update_cell(2,0,1);
+        g.update_cell(2,1,2);
+        g.update_cell(2,2,1);
+        g.update_cell(2,3,1);
+        g.update_cell(2,4,1);
+        g.update_cell(2,5,1);
+        g.update_cell(2,6,1);
+        g.update_cell(3,0,1);
+        g.update_cell(3,1,1);
+        g.update_cell(3,2,2);
+        g.update_cell(3,3,2);
+        g.update_cell(3,4,1);
+        g.update_cell(3,5,1);
+        g.update_cell(3,6,1);
+        g.update_cell(4,0,2);
+        g.update_cell(4,1,1);
+        g.update_cell(4,2,2);
+        g.update_cell(4,3,3);
+        g.update_cell(4,4,1);
+        g.update_cell(4,5,2);
+        g.update_cell(4,6,1);
+
+        std::cout << g.solve() << std::endl;
+    }
+
 }
 
-int main()
-{
-    /// 1 - Cells to be explored
-    /// 2 - End cell / Destination cell
-    /// 3 - Can't be explored
-    maze::graph g(5, 7);
-    g.update_cell(0,0,1);
-    g.update_cell(0,1,1);
-    g.update_cell(0,2,1);
-    g.update_cell(0,3,2);
-    g.update_cell(0,4,1);
-    g.update_cell(0,5,1);
-    g.update_cell(0,6,1);
-    g.update_cell(0,0,1);
-    g.update_cell(1,0,1);
-    g.update_cell(1,1,2);
-    g.update_cell(1,2,1);
-    g.update_cell(1,3,1);
-    g.update_cell(1,4,1);
-    g.update_cell(1,5,2);
-    g.update_cell(1,6,1);
-    g.update_cell(2,0,1);
-    g.update_cell(2,1,2);
-    g.update_cell(2,2,1);
-    g.update_cell(2,3,1);
-    g.update_cell(2,4,1);
-    g.update_cell(2,5,1);
-    g.update_cell(2,6,1);
-    g.update_cell(3,0,1);
-    g.update_cell(3,1,1);
-    g.update_cell(3,2,2);
-    g.update_cell(3,3,2);
-    g.update_cell(3,4,1);
-    g.update_cell(3,5,1);
-    g.update_cell(3,6,1);
-    g.update_cell(4,0,2);
-    g.update_cell(4,1,1);
-    g.update_cell(4,2,2);
-    g.update_cell(4,3,3);
-    g.update_cell(4,4,1);
-    g.update_cell(4,5,2);
-    g.update_cell(4,6,1);
-
-    std::cout << g.solve() << std::endl;
-}
 
 
 
