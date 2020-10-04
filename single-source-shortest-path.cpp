@@ -103,27 +103,28 @@ namespace sssp {
         std::cout << std::endl;
     }
 
+    int main(int argc, char * argv[])
+    {
+        /// Create directed acyclic graph
+        sssp::graph<sssp::node> g(8);
+        g.add_edge(0, 1, 3);
+        g.add_edge(0, 2, 6);
+        g.add_edge(1, 2, 4);
+        g.add_edge(1, 3, 4);
+        g.add_edge(1, 4, 11);
+        g.add_edge(2, 3, 8);
+        g.add_edge(2, 6, 11);
+        g.add_edge(3, 4, -4);
+        g.add_edge(3, 5, 5);
+        g.add_edge(3, 6, 2);
+        g.add_edge(4, 7, 9);
+        g.add_edge(5, 7, 1);
+        g.add_edge(6, 7, 2);
+
+        g.topological_sort();
+        g.dag_shortest_path(0);
+        return 0;
+    }
 }
 
-int main(int argc, char * argv[])
-{
-    /// Create directed acyclic graph
-    sssp::graph<sssp::node> g(8);
-    g.add_edge(0, 1, 3);
-    g.add_edge(0, 2, 6);
-    g.add_edge(1, 2, 4);
-    g.add_edge(1, 3, 4);
-    g.add_edge(1, 4, 11);
-    g.add_edge(2, 3, 8);
-    g.add_edge(2, 6, 11);
-    g.add_edge(3, 4, -4);
-    g.add_edge(3, 5, 5);
-    g.add_edge(3, 6, 2);
-    g.add_edge(4, 7, 9);
-    g.add_edge(5, 7, 1);
-    g.add_edge(6, 7, 2);
 
-    g.topological_sort();
-    g.dag_shortest_path(0);
-
-}
