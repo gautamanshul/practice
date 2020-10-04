@@ -56,7 +56,8 @@ namespace shortest_path {
             q.pop();
             std::for_each(adj[vertex]->begin(), adj[vertex]->end(), [&](int &ver)
             {
-                if (!visited[ver]) {
+                if (!visited[ver])
+                {
                     q.push(ver);
                     parent[ver] = vertex;
                     visited[ver] = true;
