@@ -135,12 +135,14 @@ namespace dijkstra
         priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, comp> pq;
         std::vector<int>  dist;
         std::vector<bool>  visited;
+        std::vector<int> prev;
     };
 
     dijkstra::dijkstra( size_t  size )
     {
         dist.resize(size, std::numeric_limits<int>::max());
         visited.resize(size, false);
+        prev.resize(size, std::numeric_limits<int>::max());
     }
 
     void dijkstra::shortest_distance( graph<node> & g, int parent )
@@ -189,6 +191,7 @@ namespace dijkstra
                 if ( visited[n->dst] == true ) return;
                 new_dist = dist[p.first] + n->weight;
                 if (new_dist < dist[n->dst]) {
+                    prev[n->dst] = p.first;
                     dist[n->dst] = new_dist;
                     pq.push(std::make_pair(n->dst, new_dist));
                 }
@@ -197,6 +200,12 @@ namespace dijkstra
         std::for_each(dist.begin(), dist.end(), [](const int distance )
         {
             std::cout <<  distance << " ";
+        });
+        std::cout << std::endl;
+
+        std::for_each(prev.begin(), prev.end(), [](const int parent )
+        {
+            std::cout <<  parent << " ";
         });
         std::cout << std::endl;
     }
