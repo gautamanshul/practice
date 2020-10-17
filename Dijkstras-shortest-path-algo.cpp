@@ -209,18 +209,20 @@ namespace dijkstra
         });
         std::cout << std::endl;
     }
+
+//    int main( int argc, char * argv[])
+//    {
+//        dijkstra::graph<dijkstra::node> g(5);
+//        dijkstra::dijkstra dj(5);
+//        g.add_edge(0, 1, 4);
+//        g.add_edge(0, 2, 1);
+//        g.add_edge(2, 1, 2);
+//        g.add_edge(1, 3, 1);
+//        g.add_edge(2, 3, 5);
+//        g.add_edge(3, 4, 3);
+//
+//        dj.run<dijkstra::non_recursive_tag>(g, 0);
+//    }
 }
 
-int main( int argc, char * argv[])
-{
-    dijkstra::graph<dijkstra::node> g(5);
-    dijkstra::dijkstra dj(5);
-    g.add_edge(0, 1, 4);
-    g.add_edge(0, 2, 1);
-    g.add_edge(2, 1, 2);
-    g.add_edge(1, 3, 1);
-    g.add_edge(2, 3, 5);
-    g.add_edge(3, 4, 3);
 
-    dj.run<dijkstra::non_recursive_tag>(g, 0);
-}
