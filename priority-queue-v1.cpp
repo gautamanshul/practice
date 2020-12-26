@@ -1,30 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "priority-queue-v1.hpp"
 
 namespace priority_queue
 {
-    template <class  T, class cmp = std::less<T>>
-    class priority_queue
-    {
-    public:
-        priority_queue();
-
-        void insert(const T & elem);
-        void swim(int index);
-        void print();
-        void pop();
-        void decrease_key(int index, int val);
-        const T & top() const;
-        T extract_min();
-    private:
-        void heapify(int i);
-        std::vector<T>  elements;
-
-    protected:
-        cmp compare;
-    };
-
     template <class T, class cmp>
     priority_queue<T,cmp>::priority_queue()
     {}
@@ -107,23 +87,27 @@ namespace priority_queue
         std::for_each(elements.begin(),elements.end(), [] (const T & val) { std::cout << val << " "; });
         std::cout << std::endl;
     }
+
+    int main()
+    {
+        ::priority_queue::priority_queue<int> pq;
+
+        pq.insert(2);
+        pq.insert(3);
+        pq.insert(5);
+        pq.insert(1);
+        pq.insert(7);
+        pq.insert(10);
+
+        pq.print();
+
+        int tmp = pq.extract_min();
+        pq.print();
+
+        std::cout << "Extracted min: " << tmp << std::endl;
+        tmp = pq.extract_min();
+        std::cout << "Extracted min: " << tmp << std::endl;
+        pq.print();
+    }
 }
 
-int main()
-{
-    priority_queue::priority_queue<int> pq;
-
-    pq.insert(2);
-    pq.insert(3);
-    pq.insert(5);
-    pq.insert(1);
-    pq.insert(7);
-    pq.insert(10);
-
-    pq.print();
-
-    int tmp = pq.extract_min();
-    pq.print();
-
-    std::cout << "Extracted min: " << tmp << std::endl;
-}

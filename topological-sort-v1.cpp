@@ -78,7 +78,7 @@ namespace topo_sort {
         g.add_edge(2, 3);
         g.add_edge(3,5);
         g.add_edge(5, 6);
-        g.add_edge( 4, 5 );
+        g.add_edge(4, 5);
 
         g.topo_sort();
     }
